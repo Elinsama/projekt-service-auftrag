@@ -7,6 +7,8 @@ app.get('/auftrag', (req, res) => {
   res.send("baaaiiiiii")
 })
 
+app.use(express.static("."))
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
   })
