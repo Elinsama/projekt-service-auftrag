@@ -1,0 +1,24 @@
+{
+  "name": "projekt-service-auftrag",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elinsama/Projekt-Service-Auftrag-.git"
+  },
+  "author": "NAW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elinsama/Projekt-Service-Auftrag-/issues"
+  },
+  "homepage": "https://github.com/Elinsama/Projekt-Service-Auftrag-#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^4.13.0",
+    "pdf-creator-node": "^2.3.5"
+  }
+}
