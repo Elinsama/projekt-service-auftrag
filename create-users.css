@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+#vorname {
+  padding: 10px;
+  font-size: large;
+  border-radius: 10px;
+  background-color: #555d68;
+  color: aliceblue;
+}
+
+#nachname {
+  padding: 10px;
+  font-size: large;
+  border-radius: 10px;
+  background-color: #555d68;
+  color: aliceblue;
+}
+
+:root {
+  --main-brand-color: #297ae3;
+  --primary-color: #15171c;
+  --secondary-color: #232933;
+  --light-secondary-color: #2e3744;
+  --text-color: white;
+  --secondary-text-color: #b3b4b6;
+}
+
+.buttt :hover {
+  background-color: transparent;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.erstellen {
+  background-color: var(--main-brand-color);
+  width: min-content;
+  padding: 15px 40px;
+  border-radius: 50px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: var(--text-color);
+  border: 4px solid var(--main-brand-color);
+  transition: 180ms ease-in-out;
+  font-size: 20px;
+}
+
+.seite {
+  width: 600px;
+  max-width: calc(90% - 40px);
+  background-color: var(--secondary-color);
+  border-radius: 100px;
+  padding: 60px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.flex_container {
+  margin-top: 23px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+  #services_section h2 {
+    font-size: 12vw;
+  }
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: var(--text-color);
+  text-align: center;
+}
