@@ -11,7 +11,10 @@ export async function connectToCluster(uri) {
         await mongoClient.connect();
         console.log('Successfully connected to MongoDB Atlas!');
 
-        return mongoClient;
+        const db = mongoClient.db('services');
+        const collection = db.collection('assignments');
+
+        return collection;
     } catch (error) {
         console.error('Connection to MongoDB Atlas failed!', error);
     }
@@ -19,17 +22,22 @@ export async function connectToCluster(uri) {
 
 
 export async function createAssignment(assignment) {
-    let mongoClient;
-
-    try {
-        mongoClient = await connectToCluster(uri);
-        const db = mongoClient.db('services');
-        const collection = db.collection('assignments');
-
-        await collection.insertOne(assignment);
-    } catch (error) {
-        console.error('Connection to MongoDB Atlas failed!', error);
-    } finally {
-        await mongoClient.close();
-    }
+    let collection;
+    collection = await connectToCluster(uri);
+    await collection.insertOne(assignment);
 }
+
+export async function findassignmentbyname(collection, name) {
+    return collection.find(name).toArray();
+}
+
+export async function searching(name) {
+    let collection;
+    collection = await connectToCluster(uri);
+    return await findassignmentbyname(collection, name);
+
+}
+
+
+// const result = await searching({name: "Torben"})
+// console.log(result)

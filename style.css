@@ -31,6 +31,18 @@
   transition: 180ms ease-in-out;
 }
 
+input {
+  background-color: var(--main-brand-color);
+  width: min-content;
+  padding: 15px 40px;
+  border-radius: 50px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: var(--text-color);
+  border: 4px solid var(--main-brand-color);
+  transition: 180ms ease-in-out;
+}
+
 .seite {
   width: 600px;
   max-width: calc(90% - 40px);
