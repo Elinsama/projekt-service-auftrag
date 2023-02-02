@@ -2,42 +2,39 @@ import { MongoClient } from 'mongodb';
 
 const uri = "mongodb://127.0.0.1:27017/"
 
-export async function connectToCluster(uri) {
+export async function connectToDB(uri, collectionName) {
     let mongoClient;
 
     try {
         mongoClient = new MongoClient(uri);
-        console.log('Connecting to MongoDB Atlas cluster...');
+        console.log('Connecting...');
         await mongoClient.connect();
-        console.log('Successfully connected to MongoDB Atlas!');
 
         const db = mongoClient.db('services');
-        const collection = db.collection('assignments');
+        const collection = db.collection(collectionName);
 
         return collection;
     } catch (error) {
-        console.error('Connection to MongoDB Atlas failed!', error);
+        console.error('Connection to MongoDB failed!', error);
     }
 }
 
-
 export async function createAssignment(assignment) {
-    let collection;
-    collection = await connectToCluster(uri);
+    const collection = await connectToDB(uri, 'assignments');
     await collection.insertOne(assignment);
 }
 
-export async function findassignmentbyname(collection, name) {
-    return collection.find(name).toArray();
+export async function searching(search) {
+    const collection = await connectToDB(uri, 'assignments');
+    return await collection.find(search&&search.name ? search : undefined).toArray();
 }
 
-export async function searching(name) {
-    let collection;
-    collection = await connectToCluster(uri);
-    return await findassignmentbyname(collection, name);
-
+export async function createUser(user) {
+    const collection = await connectToDB(uri, 'users');
+    await collection.insertOne(user);
 }
 
-
-// const result = await searching({name: "Torben"})
-// console.log(result)
+export async function finduser(user) {
+    const collection = await connectToDB(uri, 'users');
+    return await collection.findOne(user);
+}

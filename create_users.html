@@ -7,17 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anmeldeseite</title>
 
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-      rel="stylesheet"
-      href="login-sitecss.css"
-    />
-    <link rel="stylesheet" href="create-users.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <form action="anmeldenseite.php" method="post">
+    <form action="/user" method="post">
       <br />
       <div class="flex_container">
         <div class="seite">
@@ -29,21 +23,24 @@
             <input
               type="radio"
               name="Geschlecht"
-              id="anrede"
               value="Herr"
             />Herr
             <input
               type="radio"
               name="Geschlecht"
-              id="anrede"
               value="Frau"
             />Frau
+            <input
+            type="radio"
+            name="Geschlecht"
+            value="diverse"
+          />diverse
           </div>
 
           <div class="Vorname">
             <h3>Vorname:</h3>
 
-            <input type="text" name="Vorname" id="vorname" />
+            <input type="text" name="Vorname"/>
           </div>
 
           <br />
@@ -51,7 +48,7 @@
           <div class="nachname">
             <h3>Nachname:</h3>
 
-            <input type="text" name="Name" id="nachname" />
+            <input type="text" name="Name"/>
           </div>
 
           <br />
@@ -59,18 +56,36 @@
           <div class="Telefon">
             <h3>Telefon:</h3>
 
-            <input type="text" name="Name" id="nachname" />
+            <input type="text" name="tel"/>
           </div>
 
           <br />
 
-          <div class="buttt">
-            <input
+          <div class="password">
+            <h3>password:</h3>
+
+            <input type="password" name="password"/>
+          </div>
+
+          <br />
+
+          <div class="roles">
+            <h3>Roles:</h3>
+
+            <select name="role" id="role" multiple>
+              <option value="coworker">coworker</option>
+              <option value="admin">admin</option>
+              <option value="manager">manager</option>
+            </select>
+          </div>
+
+          <br />
+
+          <div>
+            <button
               type="submit"
               class="erstellen"
-              name="erstellen"
-              value="Erstellen"
-            />
+            >Erstellen</button>
           </div>
         </div>
       </div>
