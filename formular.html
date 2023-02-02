@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anmeldeseite</title>
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+  </head>
+
+  <style>
+      td {
+  padding: 15px;
+}
+
+.checkbox .check{
+
+}
+
+
+
+  </style>
+
+  <body>
+    <form action="anmeldenseite.php" method="post">
+      <br />
+      <h1>Service-Auftrag</h1>
+      <hr>
+
+      <table>
+          <tr class="Datum">
+              <td><h3>Datum:</h3></td>
+              <td>23.04.23</td>
+              <td><strong>Zeit:</strong>10.00</td>
+          </tr>
+
+          <tr>
+            <td><h3>Kunde/Kontaktperson:</h3></td>
+            <td>Frau Jesus Christus<br>Hausstrasse 11<br>8484 Zürich</td>
+        </tr>
+
+        <tr>
+            <td><h3>Telefon:</h3></td>
+            <td>078 767 82 09</td>
+        </tr>
+
+        <tr>
+            <td><h3>Natel:</h3></td>
+            <td>078 767 82 09</td>
+        </tr>
+
+        <tr>
+            <td><h3>Adresse-Objekt:</h3></td>
+            <td>dito</td>
+        </tr>
+      </table>
+      <hr>
+
+      <table class="checkbox">
+        <tr>
+            <td><h3>Auszuführende Arbeiten:</h3></td>
+            <td class="check"><input type="checkbox" name="Reparatur" id="Reparatur">Reparatur</a></td>
+            <td class="check"><input type="checkbox" name="Sanitär" id="Sanitär">Sanitär</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="check"><input type="checkbox" name="Heizung" class="Heizung" id="Heizung">Heizung</a></td>
+            <td class="check"><input type="checkbox" name="Garantie" id="Garantie">Garantie</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="text">Wasserhahn in der Küche tropft/undicht.</td>
+        </tr>
+</table>
+<hr>
+<table>
+    <tr>
+        <td><h3>Terminwunsch:</h3></td>
+        <td>So schnell wie möglich</td>
+    </tr>
+</table>
+    </form>
+  </body>
+</html>
