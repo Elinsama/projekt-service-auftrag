@@ -3,12 +3,11 @@ import session from 'express-session';
 import mustacheExpress from 'mustache-express';
 import hbs from 'hbs';
 import bodyParser from 'body-parser'
-import { createAssignment, createUser, finduser, searching } from './database.mjs'
+import { createAssignment, createUser, deleteAssignments, finduser, searching } from './database.mjs'
 const app = express()
 const port = 3000
 
 function isAuthenticated (req, res, next) {
-  console.log(req.session);
   if (req.session.user && req.session.user.password) next()
   else res.redirect('/')
 }
@@ -57,6 +56,12 @@ app.post('/login', async (req, res) => {
     })
   }
   else res.render('error')
+})
+
+app.post('/delete', isAuthenticated,async(req, res) => {
+  await deleteAssignments(req.body.id);
+  const auftrage = await searching(req.body);
+  res.render("list", { auftrage, ...req.body });
 })
 
 app.post('/search',isAuthenticated, async (req, res) => {

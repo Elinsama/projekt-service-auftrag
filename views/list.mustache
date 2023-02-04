@@ -12,11 +12,13 @@
         <input type="text" name="name" id="search" placeholder="search..." value="{{name}}">
         <button type="submit">Search</button>
     </form>
-
+<form action="/delete" method="post">
     <ul>
         {{#auftrage}}
-        <li>{{name}} {{lastname}} {{phonenumber}}</li>
+        <li>{{name}} {{lastname}} {{phonenumber}} <input type="checkbox" name="id" value="{{_id}}"></li>
         {{/auftrage}}
     </ul>
+    <button type="submit">delete</button>
+</form>
 </body>
 </html>
