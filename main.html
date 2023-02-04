@@ -12,7 +12,7 @@ session_start()
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anmeldeseite</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
@@ -21,13 +21,16 @@ session_start()
     <div class="seite">
       Willkommen auf der Hauptseite
       <div class="buttonpanel">
-        <button class="button" id="liste" onclick="location.href='list'">Liste
+        <button class="button" id="liste" onclick="location.href='/list'">Liste
+        </button>
+
+        <button class="button" id="liste" onclick="location.href='/listuser'">UserListe
         </button>
 
         <button class="button" id="auftrag_erstellen" onclick="location.href='/edit'">Auftragerstellen
         </button>
 
-        <button class="button" id="auftrag_erstellen" onclick="location.href='create_users.html'">Mitarbeiterzufuegen
+        <button class="button" id="auftrag_erstellen" onclick="location.href='/static/create_users.html'">Mitarbeiterzufuegen
         </button>
       </div>
     </div>

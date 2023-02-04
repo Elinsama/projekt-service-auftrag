@@ -9,14 +9,14 @@
 </head>
 <body>
     <form action="/search" method="post">
-        <input type="text" name="name" id="search" placeholder="search..." value="{{name}}">
+        <input type="text" name="Name" id="search" placeholder="search..." value="{{Name}}">
         <button type="submit">Search</button>
     </form>
-<form action="/delete" method="post">
+<form action="/deleteusers" method="post">
     <ul>
-        {{#auftrage}}
-        <li><a href="/print/{{_id}}">{{name}} {{lastname}} {{phonenumber}}</a> <input type="checkbox" name="id" value="{{_id}}"></li>
-        {{/auftrage}}
+        {{#users}}
+        <li> {{Name}} {{Vorname}} <input type="checkbox" name="id" value="{{_id}}"></li>
+        {{/users}}
     </ul>
     <button type="submit">delete</button>
 </form>
