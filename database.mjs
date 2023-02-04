@@ -50,3 +50,8 @@ export async function deleteAssignments(ids) {
     console.log({_id: {$in: ids.map((id) => ObjectId(id))}});
     console.log( await collection.deleteMany({_id: {$in: ids.map((id) => ObjectId(id))}}));
 }
+
+export async function updateAssignment(assignment) {
+    const collection = await connectToDB(uri, a);
+    await collection.replaceOne({_id: ObjectId(assignment.id)},assignment);
+}

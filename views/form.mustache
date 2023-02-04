@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/auftrag" method="post"> 
+        <input type="hidden" name="id" value="{{_id}}">
+        <table>
+            <tr class="Datum">
+                <td>
+                    <h3>Datum:</h3>
+                </td>
+                <td><input type="date" name="date" value="{{date}}"></td>
+                <td><strong>Zeit:</strong><input type="time" name="time" value="{{time}}"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Kunde/Kontaktperson:</h3>
+                </td>
+                <td><input placeholder="Name" type="text" name="name" value="{{name}}"><input placeholder="Nachname" type="text" name="lastname" value="{{lastname}}"><br><input placeholder="Strasse" type="text"
+                        name="adress" value="{{adress}}"><br><input placeholder="PLZ" type="text" name="postal" value="{{postal}}"><input placeholder="Stadt" type="text" name="city" value="{{city}}"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Telefon:</h3>
+                </td>
+                <td><input type="tel" name="phonenumber" value="{{phonenumber}}"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Natel:</h3>
+                </td>
+                <td><input type="tel" name="mobile" value="{{mobile}}"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h3>Adresse-Objekt:</h3>
+                </td>
+                <td><label for="dito">dito</label>
+                    <input type="checkbox" name="dito" id="dito" {{#dito}}checked{{/dito}}>
+                    {{^dito}}
+                    <div id="obj-adress"> <input placeholder="Strasse" type="text" name="objAdress" value="{{objAdress}}"><input placeholder="PLZ" type="text" name="objPostal" value="{{objPostal}}"><input placeholder="Stadt" type="text" name="objCity" value="{{objCity}}"></div>
+                    {{/dito}}
+                </td>
+            </tr>
+        </table>
+        <hr>
+
+        <table>
+            <tr>
+                <td>
+                    <h3>Auszuführende Arbeiten:</h3>
+                </td>
+                <td><input type="checkbox" name="Reparatur" id="Reparatur" {{#Reparatur}}checked{{/Reparatur}}>Reparatur</a></td>
+                <td><input type="checkbox" name="Sanitär" id="Sanitär"  {{#Sanitär}}checked{{/Sanitär}}>Sanitär</a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox" name="Heizung"  id="Heizung" {{#Heizung}}checked{{/Heizung}}>Heizung</a></td>
+                <td><input type="checkbox" name="Garantie" id="Garantie" {{#Garantie}}checked{{/Garantie}}>Garantie</a></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td colspan="2"><textarea name="discription" cols="30" rows="10" style="resize: none;">{{discription}}</textarea></td>
+            </tr>
+        </table>
+        <hr>
+        <table>
+            <tr>
+                <td>
+                    <h3>Terminwunsch:</h3>
+                </td>
+                <td><textarea name="costumer-wish" cols="30" rows="7" style="resize: none;">{{costumer-wish}}</textarea></td>
+            </tr>
+        </table>
+        <button type="submit">save</button>
+        <button type="reset">lehrmachen</button>
+    </form>
+    <script type="text/javascript">
+        const dito = document.getElementById("dito");
+        const adressbox = document.getElementById("obj-adress");
+        dito.onchange = () => {
+            if (dito.checked) {
+                adressbox.style.display = "none";
+            }
+            else {
+                adressbox.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

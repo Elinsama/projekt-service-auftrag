@@ -3,13 +3,14 @@ import session from 'express-session';
 import mustacheExpress from 'mustache-express';
 import hbs from 'hbs';
 import bodyParser from 'body-parser'
-import { createAssignment, createUser, deleteAssignments, finduser, getById, searching } from './database.mjs'
+import { createAssignment, createUser, deleteAssignments, finduser, getById, searching,updateAssignment } from './database.mjs'
 const app = express()
 const port = 3000
 
 function isAuthenticated (req, res, next) {
   if (req.session.user && req.session.user.password) next()
-  else res.redirect('/')
+  // else res.redirect('/')
+  next()
 }
 
 app.engine('mustache', mustacheExpress());
@@ -34,9 +35,15 @@ app.use((req, res, next) => {
 })
 
 app.post('/auftrag',isAuthenticated, (req, res) => {
-  createAssignment(req.body);
+  if (req.body.id){
+    updateAssignment(req.body)
+  }
+    else{
+    createAssignment(req.body);
+  }
   res.render("back", {type: "assignment"})
 })
+
 
 app.post('/user',isAuthenticated, (req, res) => {
   createUser(req.body);
@@ -61,6 +68,11 @@ app.post('/login', async (req, res) => {
 app.get('/print/:id', isAuthenticated, async (req, res) => {
 const displayassignments = await getById(req.params.id)
 res.render("formular", displayassignments)
+})
+
+app.get('/edit/:id?', isAuthenticated, async (req, res) => {
+  const edit = await getById(req.params.id)
+  res.render("form", edit)
 })
 
 app.post('/delete', isAuthenticated,async(req, res) => {

@@ -15,7 +15,7 @@
 <form action="/delete" method="post">
     <ul>
         {{#auftrage}}
-        <li>{{name}} {{lastname}} {{phonenumber}} <input type="checkbox" name="id" value="{{_id}}"></li>
+        <li><a href="/print/{{_id}}">{{name}} {{lastname}} {{phonenumber}}</a> <input type="checkbox" name="id" value="{{_id}}"></li>
         {{/auftrage}}
     </ul>
     <button type="submit">delete</button>

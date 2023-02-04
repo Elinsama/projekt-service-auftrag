@@ -10,19 +10,27 @@
   </head>
 
   <style>
-      td {
-  padding: 15px;
+      td {padding: 15px;}
+
+button{
+    float: right;
+}
+
+@media print {
+  button {
+    display: none;
+  }
 }
 
 
   </style>
 
-  <body>
-    <form action="anmeldenseite.php" method="post">
+  <body>  
+  <button onclick="window.print()">print</button>
+  <button onclick="location.href = '/edit/{{_id}}'">edit</button>
       <br />
       <h1>Service-Auftrag</h1>
       <hr>
-
       <table>
           <tr>
               <td><h3>Datum:</h3></td>
@@ -61,7 +69,7 @@
         <tr>
             <td></td>
             <td><input type="checkbox" disabled {{#Heizung}}checked{{/Heizung}}>Heizung</a></td>
-            <td><input type="checkbox" disabled {{#Garantie}}checked{{/Garantie}}>Garantie</a></td>
+            <td><input type="checkbox" disabled {{#Garantie}}checked{{/Garantie}}>Garantie</a></td> 
         </tr>
         <tr>
             <td></td>
