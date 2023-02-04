@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anmeldeseite</title>
+
+  </head>
+
+  <style>
+      td {
+  padding: 15px;
+}
+
+
+  </style>
+
+  <body>
+    <form action="anmeldenseite.php" method="post">
+      <br />
+      <h1>Service-Auftrag</h1>
+      <hr>
+
+      <table>
+          <tr>
+              <td><h3>Datum:</h3></td>
+              <td>{{date}}</td>
+              <td><strong>Zeit:</strong>{{time}}</td>
+          </tr>
+
+          <tr>
+            <td><h3>Kunde/Kontaktperson:</h3></td>
+            <td>{{lastname}}, {{name}}<br>{{adress}}<br>{{postal}}{{city}}</td>
+        </tr>
+
+        <tr>
+            <td><h3>Telefon:</h3></td>
+            <td>{{phonenumber}}</td>
+        </tr>
+
+        <tr>
+            <td><h3>Natel:</h3></td>
+            <td>{{mobile}}</td>
+        </tr>
+
+        <tr>
+            <td><h3>Adresse-Objekt:</h3></td>
+            <td>{{#dito}} Dito {{/dito}} {{^dito}} {{objAdress}} {{objPostal}} {{objCity}} {{/dito}}</td>
+        </tr>
+      </table>
+      <hr>
+
+      <table>
+        <tr>
+            <td><h3>Auszuführende Arbeiten:</h3></td>
+            <td><input type="checkbox" disabled {{#Reparatur}}checked{{/Reparatur}}>Reparatur</a></td>
+            <td><input type="checkbox" disabled {{#Sanitär}}checked{{/Sanitär}}>Sanitär</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" disabled {{#Heizung}}checked{{/Heizung}}>Heizung</a></td>
+            <td><input type="checkbox" disabled {{#Garantie}}checked{{/Garantie}}>Garantie</a></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>{{discription}}</td>
+        </tr>
+</table>
+<hr>
+<table>
+    <tr>
+        <td><h3>Terminwunsch:</h3></td>
+        <td>{{costumer-wish}}</td>
+    </tr>
+</table>
+    </form>
+  </body>
+</html>

@@ -3,7 +3,7 @@ import session from 'express-session';
 import mustacheExpress from 'mustache-express';
 import hbs from 'hbs';
 import bodyParser from 'body-parser'
-import { createAssignment, createUser, deleteAssignments, finduser, searching } from './database.mjs'
+import { createAssignment, createUser, deleteAssignments, finduser, getById, searching } from './database.mjs'
 const app = express()
 const port = 3000
 
@@ -35,12 +35,12 @@ app.use((req, res, next) => {
 
 app.post('/auftrag',isAuthenticated, (req, res) => {
   createAssignment(req.body);
-  res.render("back")
+  res.render("back", {type: "assignment"})
 })
 
 app.post('/user',isAuthenticated, (req, res) => {
   createUser(req.body);
-  res.render("back")
+  res.render("back", {type: "user"})
 })
 
 app.post('/login', async (req, res) => {
@@ -56,6 +56,11 @@ app.post('/login', async (req, res) => {
     })
   }
   else res.render('error')
+})
+
+app.get('/print/:id', isAuthenticated, async (req, res) => {
+const displayassignments = await getById(req.params.id)
+res.render("formular", displayassignments)
 })
 
 app.post('/delete', isAuthenticated,async(req, res) => {

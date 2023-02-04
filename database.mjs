@@ -30,6 +30,11 @@ export async function searching(search) {
     return await collection.find(search&&search.name ? search : undefined).toArray();
 }
 
+export async function getById(id) {
+    const collection = await connectToDB(uri, a);
+    return await collection.findOne(ObjectId(id));
+}
+
 export async function createUser(user) {
     const collection = await connectToDB(uri, 'users');
     await collection.insertOne(user);
